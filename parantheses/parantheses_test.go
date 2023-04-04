@@ -15,6 +15,7 @@ func TestIsBalanced(t *testing.T) {
 		{"{[{}]()}", true},
 		{"((1 + 2) * 3) - 4)/5", false},
 		{"((1 + 2) * 3) - 4/5", true},
+		{"(", false},
 	}
 
 	for _, tc := range testCases {
