@@ -1,6 +1,6 @@
 package parantheses
 
-func isBalanced(s string) bool {
+func IsBalanced(s string) bool {
 	stack := []rune{}
 	mapping := map[rune]rune{'(': ')', '[': ']', '{': '}'}
 
