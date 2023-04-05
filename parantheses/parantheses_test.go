@@ -19,7 +19,7 @@ func TestIsBalanced(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		actual := isBalanced(tc.input)
+		actual := IsBalanced(tc.input)
 
 		if actual != tc.expected {
 			t.Errorf("isBalanced(%q) == %v, expected %v", tc.input, actual, tc.expected)
