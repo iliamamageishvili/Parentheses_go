@@ -16,3 +16,5 @@ func main() {
 
 	http.ListenAndServe(":8080", router)
 }
+
+//http://localhost:8080/generate?n=150 adrress
