@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Parantheses_go/parantheses"
+	"Parentheses_go/parentheses"
 	"math/rand"
 	"net/http"
 	"time"
@@ -12,7 +12,7 @@ func main() {
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("/generate", parantheses.GenerateParantheses)
+	router.HandleFunc("/generate", parentheses.GenerateParantheses)
 
 	http.ListenAndServe(":8080", router)
 }

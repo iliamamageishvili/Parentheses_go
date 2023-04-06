@@ -1,4 +1,4 @@
-package parantheses
+package parentheses
 
 import (
 	"fmt"
