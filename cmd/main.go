@@ -12,7 +12,7 @@ func main() {
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("/generate", parentheses.GenerateParantheses)
+	router.HandleFunc("/generate", parentheses.GenerateSequenceHandler)
 
 	http.ListenAndServe(":8080", router)
 }

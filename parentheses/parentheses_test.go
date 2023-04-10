@@ -3,7 +3,6 @@ package parentheses
 import (
 	"net/http"
 	"net/http/httptest"
-	"strings"
 	"testing"
 )
 
@@ -32,24 +31,21 @@ func TestIsBalanced(t *testing.T) {
 	}
 }
 
-func TestGenerateParantheses(t *testing.T) {
+func TestGenerateSequence(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/generate?n=10", nil)
 
-	rr := httptest.NewRecorder()
+	rec := httptest.NewRecorder()
 
-	GenerateParantheses(rr, req)
+	GenerateSequenceHandler(rec, req)
 
-	if status := rr.Code; status != http.StatusOK {
-		t.Errorf("Handler returned wrong status code: got %v want %v", status, http.StatusOK)
+	if rec.Code != http.StatusOK {
+		t.Errorf("Expected status code %d but got %d", http.StatusOK, rec.Code)
 	}
 
-	body := rr.Body.String()
+	expected := 10
+	actual := len(rec.Body.String())
 
-	if len(body) != 10 {
-		t.Errorf("Handler returned wrong body length: got %v want %v", len(body), 10)
-	}
-
-	if strings.ContainsAny(body, "()") != true {
-		t.Errorf("Handler returned invalid characters in body: got %v", body)
+	if actual != expected {
+		t.Errorf("Expected a sequence of length %d, but got a sequence of length %d", expected, actual)
 	}
 }

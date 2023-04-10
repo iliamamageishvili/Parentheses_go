@@ -31,7 +31,28 @@ func IsBalanced(s string) bool {
 	return len(stack) == 0
 }
 
-func GenerateParantheses(w http.ResponseWriter, r *http.Request) {
+func GenerateSequence(length int) string {
+	var parentheses string
+	for i := 0; i < length; i++ {
+		switch rand.Perm(6)[0] {
+		case 0:
+			parentheses += "("
+		case 1:
+			parentheses += ")"
+		case 2:
+			parentheses += "["
+		case 3:
+			parentheses += "]"
+		case 4:
+			parentheses += "{"
+		case 5:
+			parentheses += "}"
+		}
+	}
+	return parentheses
+}
+
+func GenerateSequenceHandler(w http.ResponseWriter, r *http.Request) {
 	lengthParam := r.URL.Query().Get("n")
 
 	length, err := strconv.Atoi(lengthParam)
@@ -40,14 +61,7 @@ func GenerateParantheses(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	parentheses := ""
-	for i := 0; i < length; i++ {
-		if rand.Intn(2) == 0 {
-			parentheses += "("
-		} else {
-			parentheses += ")"
-		}
-	}
+	parentheses := GenerateSequence(length)
 
 	fmt.Fprint(w, parentheses)
 }
