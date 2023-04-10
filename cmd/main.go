@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Parentheses_go/parentheses"
+	"Parentheses_go/api"
 	"math/rand"
 	"net/http"
 	"time"
@@ -12,7 +12,7 @@ func main() {
 
 	router := http.NewServeMux()
 
-	router.HandleFunc("/generate", parentheses.GenerateSequenceHandler)
+	router.HandleFunc("/generate", api.GenerateSequenceHandler)
 
 	http.ListenAndServe(":8080", router)
 }
