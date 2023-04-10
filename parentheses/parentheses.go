@@ -32,7 +32,7 @@ func IsBalanced(s string) bool {
 func GenerateSequence(length int) string {
 	var builder strings.Builder
 	for i := 0; i < length; i++ {
-		switch rand.Perm(6)[0] {
+		switch rand.Intn(6) {
 		case 0:
 			builder.WriteRune('(')
 		case 1:
