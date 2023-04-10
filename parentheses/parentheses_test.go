@@ -1,6 +1,8 @@
-package parantheses
+package parentheses
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestIsBalanced(t *testing.T) {
 	testCases := []struct {

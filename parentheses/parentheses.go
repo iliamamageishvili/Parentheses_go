@@ -1,4 +1,9 @@
-package parantheses
+package parentheses
+
+import (
+	"math/rand"
+	"strings"
+)
 
 func IsBalanced(s string) bool {
 	stack := []rune{}
@@ -22,4 +27,25 @@ func IsBalanced(s string) bool {
 	}
 
 	return len(stack) == 0
+}
+
+func GenerateSequence(length int) string {
+	var builder strings.Builder
+	for i := 0; i < length; i++ {
+		switch rand.Intn(6) {
+		case 0:
+			builder.WriteRune('(')
+		case 1:
+			builder.WriteRune(')')
+		case 2:
+			builder.WriteRune('[')
+		case 3:
+			builder.WriteRune(']')
+		case 4:
+			builder.WriteRune('{')
+		case 5:
+			builder.WriteRune('}')
+		}
+	}
+	return builder.String()
 }
