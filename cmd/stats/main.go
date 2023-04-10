@@ -62,3 +62,8 @@ func main() {
 	percentBalanced := float64(balancedCount) / float64(*iterations) * 100
 	fmt.Printf("Length %d: %.2f%% balanced\n", *length, percentBalanced)
 }
+
+/* commands to test main
+go run cmd/stats/main.go -length 2 -iterations 1000 -server http://localhost:8080
+go run cmd/stats/main.go -length 4 -iterations 1000 -server http://localhost:8080
+go run cmd/stats/main.go -length 8 -iterations 1000 -server http://localhost:8080 */
